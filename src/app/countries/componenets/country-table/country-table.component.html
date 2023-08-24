@@ -1,0 +1,71 @@
+<div
+*ngIf="countries.length === 0; else table"
+class="alert alert-warning text-center"
+>
+
+No hay Paises
+
+</div>
+
+<!-- si hay para mas de un pais -->
+
+<ng-template #table>
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+
+        <th>#  </th>
+        <th> Bandera </th>
+        <th> Nombre </th>
+        <th> Capital </th>
+        <th> Escudo </th>
+        <th> Codigo Pais </th>
+        <th> Poblacion </th>
+        <th> </th>
+      </tr>
+    </thead>
+
+
+<!-- muestra los resultados -->
+    <tbody>
+      <tr *ngFor="let country of countries; let i=index">
+
+        <td>{{ i + 1 }}</td>
+
+        <td>
+          <img [src]="country.flags.svg" [alt]="country.flags.svg" alt="">
+        </td>
+
+        <td>{{country.name.common}} </td>
+        <td> {{country.capital}}    </td>
+
+        <td>
+          <img [src]="country.coatOfArms.svg" [alt]="country.coatOfArms.svg" alt="">
+        </td>
+
+
+        <td> {{ country.flag }} </td>
+
+        <td> {{country.population | number }}   </td>
+        <td>
+          <!-- el routerlink cuando tiene [] puede recibir un string
+          puede recibir un arreglo con el segmento de la ruta -->
+          <a [routerLink]="['/countries/by', country.cca3]"> Ver mas</a>
+
+        </td>
+
+
+
+
+
+
+
+
+
+      </tr>
+    </tbody>
+
+  </table>
+
+</ng-template>

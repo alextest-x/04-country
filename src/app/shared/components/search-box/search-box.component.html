@@ -1,0 +1,12 @@
+<!-- busquedad de paises -->
+
+<!-- emitValue lo envia al search-box.component.ts-->
+
+<input
+type="text"
+aria-label="Buscar"
+[placeholder]="placeholder"
+class="form-control"
+(keyup.enter)="emitValue(txtInput.value)"
+#txtInput
+>

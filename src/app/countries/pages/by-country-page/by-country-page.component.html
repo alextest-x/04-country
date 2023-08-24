@@ -1,0 +1,32 @@
+<h2>Por Pais</h2>
+<hr>
+
+<div class="row">
+  <div class="col">
+ <!--busquedad -->
+
+ Busquedas
+ <shared-search-box
+ (onValue)="searchCountry($event)"
+  placeholder="Buscar por Pais">
+</shared-search-box>
+
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <hr>
+
+  <!--  tabla de resultados
+    <ul>
+    <li *ngFor="let country of countries">
+      // {{country.name.nativeName.spa }}
+      {{country.capital}} - {{country.population}}
+    </li>
+  </ul>
+  -->
+   <countries-table [countries]="countries"></countries-table>
+ </div>
+</div>
+
